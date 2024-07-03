@@ -7,13 +7,15 @@ New projects in C# have nullable reference types enabled by default. This helps 
 You will learn:
 
 * How compile-time warnings help you avoid null reference exceptions
-*How to use nullability to make the intent of your code clear
+* How to use nullability to make the intent of your code clear
 * How to use the nullability operators: ?, !, ??  
+
+## Resources
 
 * Slides: [SLIDES-FastFocus-Nullability.pdf](./SLIDES-FastFocus-Nullability.pdf)  
 * Completed Code: [/Completed](./Completed/)
 
-## Resources
+## Additional Resources
 
 * Video: [Nullable Reference Types and Null Operators in C#](https://www.youtube.com/watch?v=xRxcfSyMD6Y)  
 * Article: [Nullability in C# - What it is and What it is Not](https://jeremybytes.blogspot.com/2022/07/nullability-in-c-what-it-is-and-what-it.html)  
