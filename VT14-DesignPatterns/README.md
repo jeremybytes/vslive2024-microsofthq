@@ -12,7 +12,7 @@ You will learn:
 Resources:  
 
 * Slides: [SLIDES-DesignPatterns.pdf](SLIDES-DesignPatterns.pdf)
-* Completed Code: [/Completed](/Completed/)
+* Completed Code: [./Completed](/Completed/)
 
 ## Project Layout  
 
