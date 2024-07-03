@@ -102,8 +102,8 @@ You will learn:
 * How to use the nullability operators: ?, !, ??  
 
 Resources:  
-* Slides: *Coming Soon*
-* Sample Code: *Coming Soon*
+* Slides: [/VH13-Nullability/SLIDES-FastFocus-Nullability.pdf](./VH13-Nullability/SLIDES-FastFocus-Nullability.pdf)
+* Sample Code: [/VH13-Nullability/](./VH13-Nullability/)
 
 ---
     
