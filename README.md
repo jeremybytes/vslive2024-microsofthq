@@ -85,8 +85,8 @@ You will learn:
 * See how a DI container can add some magic and reduce some code  
 
 Resources:  
-* Slides: *Coming Soon*
-* Sample Code: *Coming Soon*
+* Slides: [./VW02-Dependency Injection/SLIDES-DependencyInjection.pdf](/VW02-Dependency Injection/SLIDES-DependencyInjection.pdf)
+* Sample Code: [./VW02-Dependency Injection/](/VW02-Dependency Injection/)
 
 ---
 
