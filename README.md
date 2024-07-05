@@ -50,8 +50,8 @@ Note: Install the "ASP.NET and web development" workload for the labs and sample
 [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
 Resources:  
-* Slides: *Coming Soon*
-* Sample Code: *Coming Soon*  
+* Slides: [/VM02-AsyncWorkshop/SLIDES-Asynchronous-Programming-in-CSharp.pdf](./VM02-AsyncWorkshop/SLIDES-Asynchronous-Programming-in-CSharp.pdf)
+* Resources: [/VM02-AsyncWorkshop/](./VM02-AsyncWorkshop/)  
 * Labs (for easy download): *Coming Soon*
 
 ---  
