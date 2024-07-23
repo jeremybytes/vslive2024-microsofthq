@@ -39,14 +39,14 @@ Attendee Requirements:
 
 Links:
 
-* .NET 8.0 SDK
+* .NET 8.0 SDK  
 [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download)
 
-* Visual Studio 2022 (Community)
+* Visual Studio 2022 (Community)  
 [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
 Note: Install the "ASP.NET and web development" workload for the labs and samples. Include ".NET desktop development" for "digit-display" sample and WPF-based samples.
 
-* Visual Studio Code
+* Visual Studio Code  
 [https://code.visualstudio.com/download](https://code.visualstudio.com/download)
 
 Resources:  
