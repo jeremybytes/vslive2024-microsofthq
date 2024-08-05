@@ -170,6 +170,10 @@ Each of these has a lot of supporting links:
 * [Keep Your UI Responsive with the BackgroundWorker Component](http://www.jeremybytes.com/Demos.aspx#KYUIR)  
 
 **Other Resources**  
+David Fowler  
+* Async Guidance - [AspNetCoreDiagnosticScenarios
+/AsyncGuidance.md](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md)  
+
 Stephen Cleary has lots of great articles, books, and practical advice.
 * .NET 8 - [ConfigureAwait in .NET 8](https://blog.stephencleary.com/2023/11/configureawait-in-net-8.html) - Stephen Cleary
 * [Don't Block on Async Code](https://blog.stephencleary.com/2012/07/dont-block-on-async-code.html) - Stephen Cleary
