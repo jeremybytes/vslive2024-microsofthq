@@ -1,21 +1,22 @@
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddSingleton<IPeopleProvider, HardCodedPeopleProvider>();
 
-builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.WriteIndented = true);
+builder.Services.ConfigureHttpJsonOptions(options =>
+    options.SerializerOptions.WriteIndented = true);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    _ = app.UseSwagger();
+    _ = app.UseSwaggerUI();
 }
 
 app.MapGet("/people",
@@ -24,7 +25,7 @@ app.MapGet("/people",
 
 app.MapGet("/people/{id}", (IPeopleProvider provider, int id) =>
     {
-        var result = provider.GetPerson(id);
+        Person? result = provider.GetPerson(id);
         return result switch
         {
             null => Results.NoContent(),

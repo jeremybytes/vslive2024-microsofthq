@@ -6,7 +6,7 @@ namespace UsingTask.UI;
 
 public partial class MainWindow : Window
 {
-    private IPersonReader? reader;
+    IPersonReader? reader;
     public IPersonReader Reader
     {
         //get
@@ -31,17 +31,14 @@ public partial class MainWindow : Window
         //get { return reader ??= new PersonReader(); }
 
         get => reader ??= new PersonReader();
-        set => reader = value; 
+        set => reader = value;
     }
 
     CancellationTokenSource? tokenSource;
 
-    public MainWindow()
-    {
-        InitializeComponent();
-    }
+    public MainWindow() => InitializeComponent();
 
-    private void FetchWithTaskButton_Click(object sender, RoutedEventArgs e)
+    void FetchWithTaskButton_Click(object sender, RoutedEventArgs e)
     {
         tokenSource = new CancellationTokenSource();
         FetchWithTaskButton.IsEnabled = false;
@@ -50,38 +47,42 @@ public partial class MainWindow : Window
         Task<List<Person>> peopleTask = Reader.GetAsync(tokenSource.Token);
 
         // Success
-        peopleTask.ContinueWith(task =>
+        _ = peopleTask.ContinueWith(task =>
         {
             List<Person> people = task.Result;
-            foreach (var person in people)
-                PersonListBox.Items.Add(person);
+            foreach (Person person in people)
+            {
+                _ = PersonListBox.Items.Add(person);
+            }
         },
         CancellationToken.None,
         TaskContinuationOptions.OnlyOnRanToCompletion,
         TaskScheduler.FromCurrentSynchronizationContext());
 
         // Faulted
-        peopleTask.ContinueWith(task =>
+        _ = peopleTask.ContinueWith(task =>
         {
-            foreach (var ex in task.Exception!.Flatten().InnerExceptions)
+            foreach (Exception ex in task.Exception!.Flatten().InnerExceptions)
+            {
                 Log(ex);
+            }
         },
         CancellationToken.None,
         TaskContinuationOptions.OnlyOnFaulted,
         TaskScheduler.FromCurrentSynchronizationContext());
 
         // Canceled
-        peopleTask.ContinueWith(task => MessageBox.Show("CANCELED"),
+        _ = peopleTask.ContinueWith(task => MessageBox.Show("CANCELED"),
             CancellationToken.None,
             TaskContinuationOptions.OnlyOnCanceled,
             TaskScheduler.FromCurrentSynchronizationContext());
 
         // Always
-        peopleTask.ContinueWith(task => FetchWithTaskButton.IsEnabled = true,
+        _ = peopleTask.ContinueWith(task => FetchWithTaskButton.IsEnabled = true,
             TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    private async void FetchWithAwaitButton_Click(object sender, RoutedEventArgs e)
+    async void FetchWithAwaitButton_Click(object sender, RoutedEventArgs e)
     {
         tokenSource = new CancellationTokenSource();
         FetchWithAwaitButton.IsEnabled = false;
@@ -90,12 +91,14 @@ public partial class MainWindow : Window
             ClearListBox();
 
             List<Person> people = await Reader.GetAsync(tokenSource.Token);
-            foreach (var person in people)
-                PersonListBox.Items.Add(person);
+            foreach (Person person in people)
+            {
+                _ = PersonListBox.Items.Add(person);
+            }
         }
         catch (OperationCanceledException ex)
         {
-            MessageBox.Show($"CANCELED\n{ex.GetType()}\n{ex.Message}");
+            _ = MessageBox.Show($"CANCELED\n{ex.GetType()}\n{ex.Message}");
         }
         catch (Exception ex)
         {
@@ -107,25 +110,18 @@ public partial class MainWindow : Window
         }
     }
 
-    private void CancelButton_Click(object sender, RoutedEventArgs e)
-    {
+    void CancelButton_Click(object sender, RoutedEventArgs e) =>
         //if (tokenSource is not null)
         //    tokenSource.Cancel();
 
         tokenSource?.Cancel();
-    }
 
-    private void ClearListBox()
-    {
-        PersonListBox.Items.Clear();
-    }
+    void ClearListBox() => PersonListBox.Items.Clear();
 
-    private void Log(Exception ex)
-    {
+    static void Log(Exception ex) =>
         // NOTE: This is for example purposes only
         // It is generally a bad idea to show a raw exception
         // message in the application. But it is available
         // for your normal logging system.
         MessageBox.Show($"ERROR\n{ex.GetType()}\n{ex.Message}");
-    }
 }

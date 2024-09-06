@@ -1,9 +1,8 @@
 ﻿using UsingTask.Shared;
 
-namespace UsingTask.Library
+namespace UsingTask.Library;
+
+public interface IPersonReader
 {
-    public interface IPersonReader
-    {
-        Task<List<Person>> GetAsync(CancellationToken cancelToken = default);
-    }
+    Task<List<Person>> GetAsync(CancellationToken cancelToken = default);
 }
